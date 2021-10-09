@@ -1,0 +1,69 @@
+import random
+import pygame
+
+width, height = 600, 300
+blue = (0, 0, 255)
+bg_colour = (127, 127, 127)
+black = (0, 0, 0)
+RED = (255, 0, 0)
+WHITE = (255, 255, 255)
+GREEN = (0, 255, 0)
+yellow = (255, 255, 0)
+burgundy = (100, 0, 0)
+brown = (100, 53, 0)
+fos_green = (100, 120, 0)
+cyan = (104, 247, 253)
+background_color = WHITE
+'''lista = [blue,bg_colour,black,RED,WHITE,GREEN,]'''
+pygame.init()
+random_cucmok = random.choice([bg_colour, black, RED, WHITE, GREEN, burgundy, brown, fos_green, cyan, yellow])
+screen = pygame.display.set_mode((width, height))
+
+rect_pos_x = 10
+rect_pos_y = 20
+ellipse_pos_x = 600
+ellipse_pos_y = 20
+
+pygame.display.set_caption('mozgo_fos_négyzet.exe.uwu.txt')
+ora = pygame.time.Clock()
+running = True
+while running:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+
+    screen.fill(random_cucmok)
+    rect_pos_x += 1
+    rect_pos_y += 1
+    ellipse_pos_y += 1
+    ellipse_pos_x -= 1
+    pygame.draw.line(screen, black, (20, 21), (-30, -40), 10000)
+    pygame.draw.line(screen, black, (50, 51), (30, 40), 600)
+    pygame.draw.line(screen, black, (60, 50), (12, 12), 10000)
+    ellipse = pygame.Rect(ellipse_pos_x, ellipse_pos_y, 50, 50, )
+    rect = pygame.Rect(rect_pos_x, rect_pos_y, 50, 50, )
+    pygame.draw.ellipse(screen, blue, ellipse)
+    pygame.draw.rect(screen, blue, rect)
+    pygame.display.update()
+    ora.tick(60)
+    if ellipse_pos_x == 361:
+        ellipse_pos_x = 0
+        ellipse_pos_y = 0
+        random_cucmok = random.choice([bg_colour, black, RED, WHITE, GREEN, burgundy, brown, fos_green, cyan, yellow])
+        background_color = random_cucmok
+    elif rect_pos_x == 250:
+        rect_pos_x = 0
+        rect_pos_y = 0
+        random_cucmok = random.choice([bg_colour, black, RED, WHITE, GREEN, burgundy, brown, fos_green, cyan, yellow])
+        background_color = random_cucmok
+    elif rect_pos_y == 550:
+        rect_pos_x = 0
+        rect_pos_y = 0
+        random_cucmok = random.choice([bg_colour, black, RED, WHITE, GREEN, burgundy, brown, fos_green, cyan, yellow])
+        background_color = random_cucmok
+    elif ellipse_pos_y == 550:
+        ellipse_pos_x = 0
+        ellipse_pos_y = 0
+        random_cucmok = random.choice([bg_colour, black, RED, WHITE, GREEN, burgundy, brown, fos_green, cyan, yellow])
+        background_color = random_cucmok
+pygame.quit()  # menő mi?  lócsöcst!
